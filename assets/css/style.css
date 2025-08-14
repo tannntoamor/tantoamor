@@ -118,7 +118,7 @@ header.py-5 {
   padding-bottom: 5rem !important;
 }
 
-/* Ajustar márgenes del texto */
+
 header .display-4 {
   margin-top: 40 !important;
   margin-bottom: 0.25rem;
@@ -127,9 +127,9 @@ header p.lead {
   margin-bottom: 1rem;
 }
 
-/* Limitar la altura de la imagen del hero para que no “estire” la fila */
+
 header .img-fluid {
-  max-height: 500px; /* probá 280–360px según tu gusto */
+  max-height: 500px; 
   width: auto;
   object-fit: contain;
 }
