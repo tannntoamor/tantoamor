@@ -1,0 +1,140 @@
+:root {
+  --ink: #111;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --bg: #ffffff;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Fira Sans Condensed", system-ui, -apple-system, Segoe UI, Roboto;
+  font-weight: 300;
+}
+.ta-heading,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Yusei Magic", sans-serif;
+  font-weight: 400;
+}
+
+.navbar .nav-link {
+  color: #111;
+}
+.navbar .nav-link:hover {
+  color: #000;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.brand-text {
+  font-family: "Yusei Magic", sans-serif;
+}
+
+.ta-logo {
+  object-fit: cover;
+  background: #f4f4f5;
+  border: 1px solid var(--border);
+}
+
+.card {
+  border: 1px solid var(--border);
+}
+.card .card-title {
+  font-family: "Yusei Magic", sans-serif;
+}
+
+.btn-dark {
+  --bs-btn-bg: #111;
+  --bs-btn-border-color: #111;
+  --bs-btn-hover-bg: #000;
+  --bs-btn-hover-border-color: #000;
+}
+.btn-outline-dark {
+  --bs-btn-hover-bg: #111;
+  --bs-btn-hover-border-color: #111;
+  --bs-btn-hover-color: #fff;
+}
+
+.ta-art {
+  position: relative;
+  overflow: hidden;
+}
+.ta-art img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  background: #f4f4f4;
+}
+.ta-like {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  line-height: 1;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.ta-like.active {
+  background: #555;
+}
+
+.product-card {
+  border: 1px solid var(--border);
+}
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #f4f4f4;
+}
+.price {
+  font-weight: 600;
+}
+.list-group-item {
+  border-color: var(--border);
+}
+
+.cart-thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  background: #f4f4f4;
+  border-radius: 4px;
+}
+
+header.py-5 {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+
+/* Ajustar márgenes del texto */
+header .display-4 {
+  margin-top: 40 !important;
+  margin-bottom: 0.25rem;
+}
+header p.lead {
+  margin-bottom: 1rem;
+}
+
+/* Limitar la altura de la imagen del hero para que no “estire” la fila */
+header .img-fluid {
+  max-height: 500px; /* probá 280–360px según tu gusto */
+  width: auto;
+  object-fit: contain;
+}
+@media (max-width: 991.98px) {
+  header .img-fluid {
+    max-height: 240px;
+  }
+}
