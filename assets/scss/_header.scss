@@ -1,0 +1,23 @@
+header.py-5 {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+
+  .display-4 {
+    margin-top: 40 !important;
+    margin-bottom: 0.25rem;
+  }
+
+  p.lead {
+    margin-bottom: 1rem;
+  }
+
+  .img-fluid {
+    max-height: 500px;
+    width: auto;
+    object-fit: contain;
+
+    @media (max-width: 991.98px) {
+      max-height: 240px;
+    }
+  }
+}

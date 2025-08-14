@@ -1,0 +1,59 @@
+.card,
+.product-card {
+  border: 1px solid $border;
+
+  .card-title {
+    font-family: $fuente-titulos;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    background: $color-acento;
+  }
+}
+
+.ta-art {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 260px;
+  }
+}
+
+.ta-like {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  background: $ink;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  line-height: 1;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &.active {
+    background: #555;
+  }
+}
+
+.cart-thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border: 1px solid $border;
+  background: $color-acento;
+  border-radius: 4px;
+}
+
+.price {
+  font-weight: 600;
+}
+
+.list-group-item {
+  border-color: $border;
+}

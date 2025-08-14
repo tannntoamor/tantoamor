@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $bg;
+  color: $ink;
+  font-family: $fuente-principal;
+  font-weight: 300;
+}
+
+.ta-heading,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $fuente-titulos;
+  font-weight: 400;
+}
+
+// Mixin para centrar elementos
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor {
+  @include flex-center;
+  flex-direction: column;
+  padding: 1rem;
+}
