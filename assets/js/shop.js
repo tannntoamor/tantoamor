@@ -1,7 +1,7 @@
 (function () {
-  // ---------- Configurable ----------
+  
   const PRODUCTS = [
-    // Cambiá "title", "price" y (si querés) la ruta "img".
+   
     {
       id: "p1",
       title: "Remera 01",
@@ -65,7 +65,7 @@
   ];
   const FALLBACK_IMG = "assets/img/placeholder_square.jpg";
 
-  // ---------- Utils ----------
+  
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
   const money = (n) => "$ " + Number(n || 0).toLocaleString("es-AR");
@@ -83,7 +83,7 @@
     document.dispatchEvent(new Event("cart:changed"));
   };
 
-  // ---------- Render catálogo ----------
+
   function renderProducts() {
     const grid = $("#products");
     if (!grid) return;
@@ -114,7 +114,7 @@
     });
   }
 
-  // ---------- Mutaciones carrito ----------
+  
   function addToCart(id) {
     const p = PRODUCTS.find((x) => x.id === id);
     if (!p) return;
@@ -144,7 +144,7 @@
     renderCart();
   }
 
-  // ---------- Render carrito ----------
+  
   function renderCart() {
     const list = $("#cart-items");
     const empty = $("#cart-empty");
@@ -208,7 +208,7 @@
     );
   }
 
-  // ---------- Init ----------
+  
   document.addEventListener("DOMContentLoaded", () => {
     renderProducts();
     renderCart();
@@ -220,7 +220,7 @@
     }
   });
 
-  // Contador en navbar (si existe #cart-count)
+  
   document.addEventListener("cart:changed", () => {
     const el = document.getElementById("cart-count");
     if (!el) return;
