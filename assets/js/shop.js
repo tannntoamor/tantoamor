@@ -1,7 +1,5 @@
 (function () {
-  
   const PRODUCTS = [
-   
     {
       id: "p1",
       title: "Remera 01",
@@ -63,9 +61,9 @@
       img: "assets/img/products/product_10.png",
     },
   ];
+  window.PRODUCTS = PRODUCTS;
   const FALLBACK_IMG = "assets/img/placeholder_square.jpg";
 
-  
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
   const money = (n) => "$ " + Number(n || 0).toLocaleString("es-AR");
@@ -82,7 +80,6 @@
     localStorage.setItem(CART_KEY, JSON.stringify(c));
     document.dispatchEvent(new Event("cart:changed"));
   };
-
 
   function renderProducts() {
     const grid = $("#products");
@@ -114,7 +111,6 @@
     });
   }
 
-  
   function addToCart(id) {
     const p = PRODUCTS.find((x) => x.id === id);
     if (!p) return;
@@ -144,7 +140,6 @@
     renderCart();
   }
 
-  
   function renderCart() {
     const list = $("#cart-items");
     const empty = $("#cart-empty");
@@ -208,7 +203,6 @@
     );
   }
 
-  
   document.addEventListener("DOMContentLoaded", () => {
     renderProducts();
     renderCart();
@@ -220,7 +214,6 @@
     }
   });
 
-  
   document.addEventListener("cart:changed", () => {
     const el = document.getElementById("cart-count");
     if (!el) return;
@@ -228,3 +221,60 @@
     el.textContent = total;
   });
 })();
+
+function mostrarCatalogoSim() {
+  const P = window.PRODUCTS || [];
+  console.clear();
+  console.log("📦 Catálogo Tanto Amor (Simulador):");
+  P.forEach((p, idx) => {
+    console.log(`${idx + 1}) ${p.title} - $${p.price}`);
+  });
+}
+
+function simuladorCompra() {
+  const P = window.PRODUCTS || [];
+  if (!P.length) {
+    alert(
+      "No hay productos disponibles todavía. Verificá que shop.js cargue primero."
+    );
+    return;
+  }
+
+  alert(
+    "Bienvenid@ al simulador de Tanto Amor\nAbrí la consola para ver el catálogo"
+  );
+  mostrarCatalogoSim();
+
+  let id = prompt("Ingresá el número de producto que querés (ej: 1, 2, 3...)");
+  if (id === null) return;
+  id = parseInt(id, 10);
+
+  const prod = P[id - 1];
+  if (!prod) {
+    alert("Producto no válido ❌");
+    return;
+  }
+
+  let cant = prompt(`¿Cuántas unidades de ${prod.title}?`);
+  if (cant === null) return;
+  cant = parseInt(cant, 10);
+  if (isNaN(cant) || cant <= 0) {
+    alert("Cantidad inválida ❌");
+    return;
+  }
+
+  const subtotal = prod.price * cant;
+  const total = cant >= 5 ? Math.round(subtotal * 0.9) : subtotal; // 10% off desde 5
+
+  console.log(`Elegiste: ${cant} x ${prod.title}`);
+  console.log(`Subtotal: $${subtotal}`);
+  console.log(`Total con descuentos: $${total}`);
+
+  alert(`Tu total es $${total}\nMirá la consola para el detalle completo.`);
+}
+
+// Exponerlas en el ámbito global para el botón y la consola
+if (typeof window !== "undefined") {
+  window.mostrarCatalogoSim = mostrarCatalogoSim;
+  window.simuladorCompra = simuladorCompra;
+}

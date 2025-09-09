@@ -1,0 +1,21 @@
+.navbar {
+  .nav-link {
+    color: $ink;
+
+    &:hover {
+      color: $color-hover;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+}
+
+.brand-text {
+  font-family: $fuente-titulos;
+}
+
+.ta-logo {
+  object-fit: cover;
+  background: $color-acento;
+  border: 1px solid $border;
+}
